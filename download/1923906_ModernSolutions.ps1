@@ -19,8 +19,13 @@
     }
 }
 
-KillThatProcess("notepad")
 
-function Bamboozle([string]$location = "./"){
+function Bamboozle{
+    Param(
+        [string]$location = "./"
+    )
 
+    Write-Host [char]90
 }
+
+Bamboozle
