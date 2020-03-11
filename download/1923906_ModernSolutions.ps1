@@ -12,9 +12,7 @@
         if($answer.ToLower() -ne "y"){
             Write-Host "You cancelled the operation." -BackgroundColor Red -ForegroundColor Black
         }else{
-            foreach($process in $processes){
-                kill $process
-            }
+            $processes | kill
         }
     }
 }
@@ -28,4 +26,4 @@ function Bamboozle{
     Write-Host [char]90
 }
 
-Bamboozle
+KillThatProcess('notepad')
