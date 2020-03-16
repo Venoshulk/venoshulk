@@ -20,10 +20,14 @@
 
 function Bamboozle{
     Param(
-        [string]$location = "./"
+        [string]$location = $PSScriptRoot + "\"
     )
 
-    Write-Host [char]90
-}
+    [char] $letter = Get-Random -Minimum 65 -Maximum 91
 
-KillThatProcess('notepad')
+    Write-Host $letter
+
+    $files = Get-ChildItem -Path $location -Filter *$letter*
+
+    $files | Remove-Item -WhatIf
+}
