@@ -4,15 +4,15 @@
     $processes = Get-Process $processName -ErrorAction Ignore
 
     if($processes -eq $null){
-        Write-host "Error! No processes with the name $($processName) are open!"
+        Write-host "Error! No processes with the name $($processName) are open!" -BackgroundColor Red -ForegroundColor Black
     }else{
-        Write-Host "There are $($processes.length) processe(s) with the name $($processName), proceed? Y/N"
-        $answer = Read-Host
+        $answer = Read-Host -Prompt "There are $($processes.length) processe(s) with the name $($processName), proceed? Y/N"
 
-        if($answer.ToLower() -ne "y"){
+        if($answer -ne "y"){ #No need for .ToLower(), because Powershell
             Write-Host "You cancelled the operation." -BackgroundColor Red -ForegroundColor Black
         }else{
             $processes | kill
+            Write-Host "Succesfully killed all the processes." -BackgroundColor Green -ForegroundColor Black
         }
     }
 }
@@ -27,7 +27,5 @@ function Bamboozle{
 
     Write-Host $letter
 
-    $files = Get-ChildItem -Path $location -Filter *$letter*
-
-    $files | Remove-Item -WhatIf
+    Get-ChildItem -Path $location -Filter *$letter* -File | Remove-Item -WhatIf
 }
