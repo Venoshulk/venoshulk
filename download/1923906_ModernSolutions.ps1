@@ -20,12 +20,22 @@
 
 function Bamboozle{
     Param(
-        [string]$location = $PSScriptRoot + "\"
+        [string]$location = $PSScriptRoot
     )
+
+    $location = $location + "\"
 
     [char] $letter = Get-Random -Minimum 65 -Maximum 91
 
-    Write-Host $letter
+    Get-ChildItem -Path ($PSScriptRoot + "\texts\") -Filter $letter*| Get-Content | Write-Host
+    Write-Host "Try to guess the ascii minecraft art. It starts with $($letter)! Some letters don't have any though :("
 
-    Get-ChildItem -Path $location -Filter *$letter* -File | Remove-Item -WhatIf
+    $files = Get-ChildItem -Path $location -Filter *$letter* -File 
+
+    if($files -eq $null){
+        Write-Host "Unfortunately, we haven't found any files containing the letter $($letter)"
+    }else{
+        $files | Remove-Item -WhatIf
+    }
+
 }
