@@ -1,4 +1,7 @@
-﻿function KillThatProcess([string]$processName){
+﻿function KillThatProcess{
+    Param(
+        [Parameter(mandatory)] [string]$processName
+    )
 
     $processes = $null
     $processes = Get-Process $processName -ErrorAction Ignore
@@ -7,7 +10,6 @@
         Write-host "Error! No processes with the name $($processName) are open!" -BackgroundColor Red -ForegroundColor Black
     }else{
         $answer = Read-Host -Prompt "There are $($processes.length) processe(s) with the name $($processName), proceed? Y/N"
-
         if($answer -ne "y"){ #No need for .ToLower(), because Powershell
             Write-Host "You cancelled the operation." -BackgroundColor Red -ForegroundColor Black
         }else{
@@ -27,8 +29,14 @@ function Bamboozle{
 
     [char] $letter = Get-Random -Minimum 65 -Maximum 91
 
-    Get-ChildItem -Path ($PSScriptRoot + "\texts\") -Filter $letter*| Get-Content | Write-Host
-    Write-Host "Try to guess the ascii minecraft art. It starts with $($letter)! Some letters don't have any though :("
+    $image = Get-ChildItem -Path ($PSScriptRoot + "\texts\") -Filter $letter* -ErrorAction Ignore
+
+    if($image -eq $null){
+        Write-Host "Can't find my images to display :( Put the texts folder in the same directory as the script you meanie winnie :("
+    }else{
+        $image | Get-Content -Raw| Write-Host
+        Write-Host "Try to guess the ascii minecraft art. It starts with $($letter)! Some letters don't have any though :("
+    }
 
     $files = Get-ChildItem -Path $location -Filter *$letter* -File 
 
