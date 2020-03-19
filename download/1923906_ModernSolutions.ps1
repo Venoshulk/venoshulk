@@ -32,7 +32,7 @@ function Bamboozle{
     $image = Get-ChildItem -Path ($PSScriptRoot + "\texts\") -Filter $letter* -ErrorAction Ignore
 
     if($image -eq $null){
-        Write-Host "Can't find my images to display :( Put the texts folder in the same directory as the script you meanie winnie :("
+        Write-Host "Its the letter $($letter), okay? I Can't find my images to display :( Put the texts folder in the same directory as the script you meanie winnie :("
     }else{
         $image | Get-Content -Raw| Write-Host
         Write-Host "Try to guess the ascii minecraft art. It starts with $($letter)! Some letters don't have any though :("
