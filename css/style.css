@@ -82,7 +82,7 @@ nav aside a{
 
 /* Main */
 main{
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -127,7 +127,7 @@ main{
     height: 600px;
     margin: 0 0 50px 0;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/kevin.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/kevin.jpg");
     background-size: cover;
 
     display: flex;
@@ -157,6 +157,7 @@ main{
 }
 .projects{
     opacity: 0;
+    max-width: 1200px;
 
     animation-name: appear;
     animation-delay: 9s;
@@ -167,6 +168,7 @@ main{
     height: 400px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .projects section a{
     display: block;
