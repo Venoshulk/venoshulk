@@ -46,7 +46,12 @@ header{
     max-width: 1600px;
     max-height: 300px;
     padding: 0 10px;
-    margin: 20px auto 50px auto;
+    margin: 20px auto;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 nav{
     opacity: 0;
@@ -58,10 +63,14 @@ nav{
     justify-content: space-between;
     align-items: center;
 
-    animation-name: appear;
+    animation-name: appear-nav;
     animation-delay: 7s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+}
+@keyframes appear-nav{
+    0% {opacity: 0;}
+    100% {opacity: 1; background-color: white;}
 }
 @keyframes appear{
     0% {opacity: 0;}
@@ -78,6 +87,12 @@ nav aside{
 nav aside a{
     display: inline-block;
     margin: 10px;
+}
+.disabled-hyper{
+    opacity: 0.2;
+}
+.disabled-hyper:hover{
+    opacity: 0.1;
 }
 
 /* Main */
