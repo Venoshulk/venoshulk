@@ -131,14 +131,14 @@ main{
     align-items: left;
 }
 .projects-wrapper figure{
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
 
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
 
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
     background-color: black;
 }
 .projects-wrapper img{
@@ -283,5 +283,28 @@ main{
 }
 #submit:hover{
     background-color: #1B9AAA;
+    color: white;
+}
+
+/* Footer */
+footer{
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+
+    background-color: black;
+}
+footer .flaticon-wrapper{
+    color: white;
+    text-align: center;
+}
+footer .flaticon-wrapper a{
+    margin: 0 auto;
     color: white;
 }
