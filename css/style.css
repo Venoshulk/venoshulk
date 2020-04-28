@@ -7,7 +7,7 @@
 }
 /* Defaults */
 h1{
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 h2{
     font-size: 3rem;
@@ -18,15 +18,16 @@ h3{
 p{
     font-size: 1.5rem;
     line-height: 1.5;
-    text-align: justify;
+    text-align: left;
 }
 a{
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bolder;
 }
 a:hover{
     opacity: 0.5;
+    color: #1B9AAA;
 }
 body{
     background-color: white;
@@ -51,6 +52,7 @@ nav{
     background-color: white;
 
     display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
 
@@ -87,10 +89,11 @@ main{
 
 .introduction-wrapper{
     height: 600px;
-    margin: 0 0 50px 0;
+    margin: 0 0 20px 0;
 
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/kevin.jpg");
     background-size: cover;
+    border-style: solid;
 
     display: flex;
     align-items: flex-end;
@@ -119,46 +122,69 @@ main{
 }
 
 /* Projects */
-.projects-wrapper{
-
-    animation-name: none;
-    animation-delay: 9s;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-}
 .projects-wrapper section{
-    height: 400px;
     margin: 20px auto;
+
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: left;
 }
 .projects-wrapper figure{
+    margin: 0 0 20px 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: #1B9AAA;
+    background-color: black;
 }
 .projects-wrapper img{
     background-color: white;
+    max-width: 250px;
+    max-height: 250px;
 }
 .projects-wrapper figcaption{
-    text-align: center;
+    flex: 2;
+    height: 100%;
     padding: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: left;
+    align-items: center;
+
+}
+.projects-wrapper section h3{
+    color: white;
+}
+.projects-wrapper section p{
+    color: white;
+    text-align: center;
+    padding: 25px 50px;
 }
 .projects-wrapper section a{
-    display: block;
-    width: 50%;
-    margin: 20px auto;
-    padding: 1em 0;
+    margin: 0 20px;
+    padding: 1em;
 
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 1rem;
     text-align: center;
+}
+.projects-wrapper section a:hover{
+    opacity: 1;
+    background-color: #1B9AAA;
+    color: white;
 }
 
 /* Influences Page */
 .influences-wrapper article{
-    margin: 20px 0;
+    margin: 20px auto;
+    max-width: 1200px;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 350px 350px;
@@ -184,6 +210,8 @@ main{
     display: block;
     margin: 0 auto;
     max-width: 100%;
+    width: 100%;
+    height: 100%;
     transition: opacity 1s;
 }
 .hover-figcaption{
