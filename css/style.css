@@ -2,27 +2,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: serif;
     color: black;
 }
 /* Defaults */
 h1{
+    font-family: 'Playfair Display SC', serif;
     font-size: 3.5rem;
+    line-height: 1.3;
 }
 h2{
+    font-family: 'EB Garamond', serif;
     font-size: 3rem;
+    line-height: 1.1;
 }
 h3{
     font-size: 1.5rem;
+    line-height: 1;
 }
 p{
     font-size: 1.5rem;
     line-height: 1.5;
     text-align: left;
 }
+span{
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
 a{
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
 }
 a:hover{
@@ -102,12 +112,6 @@ main{
     animation-delay: 8s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-}
-.introduction-wrapper span{
-    color: white;
-    font-family: cursive;
-    font-weight: bold;
-    font-style: italic;
 }
 .introduction-wrapper article{
     padding: 50px;
@@ -190,13 +194,13 @@ main{
 
 /* Influences Page */
 .influences-wrapper article{
-    margin: 20px auto;
-    max-width: 1200px;
+    margin: 10px auto;
+    max-width: 1000px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 350px 350px;
-    gap: 10px;
+    gap: 10px 15px;
 }
 .influences-wrapper article figure{
     background-color: white;
