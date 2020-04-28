@@ -22,7 +22,7 @@ p{
 }
 a{
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
 }
 a:hover{
@@ -30,15 +30,6 @@ a:hover{
 }
 body{
     background-color: white;
-}
-@keyframes blackToWhite{
-    0% {background-position: 0% 100%;}
-    100% {background-position: 91% 100%;}
-}
-@keyframes whiteToBlack{
-    0% {background-color: rgb(0,0,0)}
-    50% {background-color: rgb(127,127,127);}
-    100% {background-color: rgb(255,255,255)}
 }
 
 /* header */
@@ -54,27 +45,19 @@ header{
     z-index: 2;
 }
 nav{
-    opacity: 0;
     height: 100%;
 
     border-bottom: solid 1px;
+    background-color: white;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    animation-name: appear-nav;
+    animation-name: none;
     animation-delay: 7s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-}
-@keyframes appear-nav{
-    0% {opacity: 0;}
-    100% {opacity: 1; background-color: white;}
-}
-@keyframes appear{
-    0% {opacity: 0;}
-    100% {opacity: 1;}
 }
 nav section{
     width: 50%;
@@ -101,44 +84,8 @@ main{
     margin: 0 auto;
     padding: 0 10px;
 }
-#blackToWhite{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation-name: blackToWhite;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
-}
-#blackToWhite rect{
-    width: 100%;
-    height: 100%;
-    fill:rgb(0,0,0);
-}
-@keyframes blackToWhite{
-    0% {}
-    100% {transform: translate(0%,100%); display: none;}
-}
-#hello{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 5rem;
-    opacity: 0;
-    animation-name: hello;
-    animation-duration: 4s;
-    animation-delay: 3s;
-    animation-fill-mode: forwards;
-}
-@keyframes hello{
-    0% {opacity: 0;}
-    50% {opacity: 1;}
-    100% {display: none;}
-}
-.introduction{
-    opacity: 0;
+
+.introduction-wrapper{
     height: 600px;
     margin: 0 0 50px 0;
 
@@ -148,62 +95,107 @@ main{
     display: flex;
     align-items: flex-end;
 
-    animation-name: appear;
+    animation-name: none;
     animation-delay: 8s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
-.introduction span{
+.introduction-wrapper span{
     color: white;
     font-family: cursive;
     font-weight: bold;
     font-style: italic;
 }
-.introduction article{
+.introduction-wrapper article{
     padding: 50px;
 }
-.introduction article p{
+.introduction-wrapper article p{
     margin: 10px 0 0 0;
     width: 50%;
     color: white;
 }
-.introduction h2{
+.introduction-wrapper h2{
     color: white;
 }
-.projects{
-    opacity: 0;
 
-    animation-name: appear;
+/* Projects */
+.projects-wrapper{
+
+    animation-name: none;
     animation-delay: 9s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
-.projects section{
+.projects-wrapper section{
     height: 400px;
     margin: 20px auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
-.projects figure{
+.projects-wrapper figure{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #1B9AAA;
 }
-.projects img{
-    background-color: #477586;
+.projects-wrapper img{
+    background-color: white;
 }
-.projects figcaption{
+.projects-wrapper figcaption{
     text-align: center;
     padding: 10px;
 }
-.projects section a{
+.projects-wrapper section a{
     display: block;
     width: 50%;
-    height: 50px;
     margin: 20px auto;
-    padding: 12.5px 0;
+    padding: 1em 0;
 
     background-color: black;
     color: white;
     font-size: 1rem;
     text-align: center;
+}
+
+/* Influences Page */
+.influences-wrapper article{
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 350px 350px;
+    gap: 10px;
+}
+.influences-wrapper article figure{
+    background-color: white;
+    border-style: solid;
+    overflow: hidden;
+    position: relative;
+}
+.influences-wrapper article figure:hover{
+    background-color: #1B9AAA;
+}
+.influences-wrapper article figure:hover > .hover-image{
+    opacity: 0.1;
+}
+.influences-wrapper article figure:hover > .hover-figcaption{
+    visibility: visible;
+    opacity: 1;
+}
+.hover-image{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    transition: opacity 1s;
+}
+.hover-figcaption{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: visibility 0s;
+    transition: opacity 1s linear;
+}
+.hover-figcaption p{
+    color: white;
 }
