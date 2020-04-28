@@ -170,9 +170,17 @@ main{
     padding: 1em;
 
     background-color: white;
-    color: black;
-    font-size: 1rem;
-    text-align: center;
+    color: #1B9AAA;
+    cursor: pointer;
+
+    border-style: solid;
+    border-radius: 1em;
+    border-color: #1B9AAA;
+
+    font-size: 1em;
+    font-weight: bold;
+
+    transition: background-color 0.2s;
 }
 .projects-wrapper section a:hover{
     opacity: 1;
@@ -225,5 +233,55 @@ main{
     transition: opacity 1s linear;
 }
 .hover-figcaption p{
+    color: white;
+}
+
+/* Contact Page */
+.contact-wrapper{
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+
+    border-style: solid;
+}
+.contact-wrapper form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: left;
+    align-items: left;
+}
+.contact-wrapper form label{
+    display: inline-block;
+    margin: 10px 0;
+}
+.contact-wrapper form input{
+    height: 25px;
+    padding: 10px;
+}
+.contact-wrapper form select option{
+    height: 25px;
+    padding: 10px;
+}
+#submit{
+    height: initial;
+    margin: 10px 0;
+    padding: 15px 35px;
+    align-self: center;
+
+    background-color: white;
+    color: #1B9AAA;
+    cursor: pointer;
+
+    border-style: solid;
+    border-radius: 1em;
+    border-color: #1B9AAA;
+
+    font-size: 1em;
+    font-weight: bold;
+
+    transition: background-color 0.2s;
+}
+#submit:hover{
+    background-color: #1B9AAA;
     color: white;
 }
