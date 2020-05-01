@@ -210,6 +210,7 @@ main{
 }
 .influences-wrapper article figure:hover{
     background-color: #1B9AAA;
+    border-width: 5px;
 }
 .influences-wrapper article figure:hover > .hover-image{
     opacity: 0.1;
@@ -227,6 +228,8 @@ main{
     transition: opacity 1s;
 }
 .hover-figcaption{
+    width: 100%;
+    padding: 20px;
     visibility: hidden;
     opacity: 0;
     position: absolute;
@@ -261,6 +264,9 @@ main{
 .contact-wrapper form input{
     height: 25px;
     padding: 10px;
+}
+.contact-wrapper form select{
+    max-width: 20%;
 }
 .contact-wrapper form select option{
     height: 25px;
