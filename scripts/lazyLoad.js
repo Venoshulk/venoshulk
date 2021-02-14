@@ -15,7 +15,6 @@ function lazyCall(entries, obs){
 
 function main(){
     let observer = new IntersectionObserver(lazyCall, obsOptions);
-    console.log(observer);
 
     document.querySelectorAll('img').forEach(img => {observer.observe(img)});
 }
