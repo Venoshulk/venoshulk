@@ -1,7 +1,12 @@
-let obsOptions = {
+const imgOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
+}
+const obsOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7
 }
 
 function lazyCall(entries, obs){
@@ -13,10 +18,22 @@ function lazyCall(entries, obs){
     });
 }
 
-function main(){
-    let observer = new IntersectionObserver(lazyCall, obsOptions);
+function revealSection(entries, obs){
+    entries.forEach(element => {
+        if(element.isIntersecting){
+            element.target.style.visibility = 'visible';
+            element.target.style.opacity = 1;
+            obs.unobserve(element.target);
+        }
+    });
+}
 
-    document.querySelectorAll('img').forEach(img => {observer.observe(img)});
+function main(){
+    let sectionObserver = new IntersectionObserver(revealSection, obsOptions);
+    let imgObserver = new IntersectionObserver(lazyCall, imgOptions);
+
+    document.querySelectorAll('img').forEach(img => {imgObserver.observe(img)});
+    document.querySelectorAll('article').forEach(article => {sectionObserver.observe(article)});
 }
 
 window.onload = main;
