@@ -6,7 +6,7 @@ const imgOptions = {
 const obsOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.7
+    threshold: 0.5
 }
 
 function lazyCall(entries, obs){
@@ -28,12 +28,10 @@ function revealSection(entries, obs){
     });
 }
 
-function main(){
+function startLazy(){
     let sectionObserver = new IntersectionObserver(revealSection, obsOptions);
     let imgObserver = new IntersectionObserver(lazyCall, imgOptions);
 
     document.querySelectorAll('img').forEach(img => {imgObserver.observe(img)});
     document.querySelectorAll('article').forEach(article => {sectionObserver.observe(article)});
 }
-
-window.onload = main;
