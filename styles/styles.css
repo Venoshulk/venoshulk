@@ -65,7 +65,7 @@ main{
 .experiences-wrapper{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr auto;
+    grid-template-rows: 1fr 1fr;
     row-gap: 10px;
 }
 
@@ -162,7 +162,7 @@ main{
 
     .experiences-wrapper{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr auto;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         column-gap: 10px;
     }
@@ -258,7 +258,7 @@ main{
 
     .experiences-wrapper{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr auto;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         column-gap: 10px;
     }
@@ -271,11 +271,16 @@ main{
         justify-self: center;
         align-self: center;
         text-align: center;
+
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-start;
     }
     
     .experiences-card img{
         max-width: 100%;
-        max-height: 60%;
+        max-height: 130px;
     }
 
     .experiences-card p{
