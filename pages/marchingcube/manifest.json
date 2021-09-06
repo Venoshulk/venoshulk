@@ -1,0 +1,8 @@
+{
+  "short_name": "Marching Cube Demo",
+  "name": "Marching Cube Interactive Demo",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
