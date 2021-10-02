@@ -41,11 +41,11 @@ main{
 }
 
 .introduction-wrapper canvas{
-    height: 250px;
-    width: 250px;
-
     display: block;
     margin: auto;
+
+    border: 1px solid cornflowerblue;
+    border-radius: 16%;
 }
 
 .introduction-wrapper div{

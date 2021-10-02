@@ -28,7 +28,7 @@ function revealSection(entries, obs){
     });
 }
 
-function startLazy(){
+export const startLazy =  function(){
     let sectionObserver = new IntersectionObserver(revealSection, obsOptions);
     let imgObserver = new IntersectionObserver(lazyCall, imgOptions);
 
