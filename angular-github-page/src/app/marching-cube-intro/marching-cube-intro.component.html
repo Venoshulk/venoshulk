@@ -1,5 +1,66 @@
-<section id="intro-section">
+<style>
+    #demo-section {
+        width: 100%;
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row nowrap;
+        overflow: hidden;
+    }
+
+    #intro-section {
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.25fr 1fr 1fr;
+        gap: 16px;
+    }
+
+    #intro-section p {
+        padding: 8px;
+        text-align: justify;
+    }
+
+    #intro-section.is-portrait {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #title {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+    }
+
+    #intro-paragraph {
+        grid-column: 1 / 1;
+        grid-row: 2 / span 2;
+    }
+
+    #showcase-image {
+        width: 100%;
+        aspect-ratio: 1/1;
+        margin: auto;
+
+        grid-column: 2 / 2;
+        grid-row: 1 / span 3;
+        border: #1FFF19 5px solid;
+    }
+
+    #showcase-image.is-portrait {
+        width: 300px;
+        height: 300px;
+    }
+</style>
+
+<section class="padded-box" id="intro-section" [ngClass]="{'is-portrait': isPortrait}">
     <h1 id="title">Marching Cubes: A Quick Note</h1>
+    <img id="showcase-image" [ngClass]="{'is-portrait': isPortrait}" src="/assets/imgs/marching.gif"
+        alt="Marching Squares Showcase!">
     <div id="intro-paragraph">
         <p>
             Awhile back, I saw a YouTube video titled “Coding Adventure: Marching Cubes” by Sebastian Lague. It was an
@@ -34,5 +95,4 @@
             </li>
         </ul>
     </div>
-    <img id="showcase-image" src="/assets/imgs/marching.gif" alt="Marching Squares Showcase!">
 </section>
