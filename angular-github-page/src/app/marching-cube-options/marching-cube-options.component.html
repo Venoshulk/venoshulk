@@ -1,0 +1,82 @@
+<style>
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .options-box {
+        display: inline-block;
+        max-width: 500px;
+    }
+
+    .card-divider {
+        margin: 16px 0;
+    }
+</style>
+
+
+<mat-accordion class="options-box">
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Options
+            </mat-panel-title>
+            <mat-panel-description>
+                Explore different options for rendering with marching cubes.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <form (ngSubmit)="onSubmit($event)">
+                <mat-checkbox [(ngModel)]="inputs.showGrid" name="showGrid">Show Cube
+                    Grid</mat-checkbox>
+                <mat-checkbox [(ngModel)]="inputs.showVertices" name="showVertices">Show
+                    Generated Vertices</mat-checkbox>
+                <mat-form-field>
+                    <mat-label>Individual Size</mat-label>
+                    <input matInput [(ngModel)]="inputs.individualSize" id="individualSize-input" name="individualSize"
+                        type="number" min="0" [placeholder]="'Cube Size: ' + inputs.individualSize">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Total Size</mat-label>
+                    <input matInput [(ngModel)]="inputs.totalSize" id="totalSize-input" name="totalSize" type="number"
+                        min="0" [placeholder]="'Total Size:' + inputs.totalSize">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Isolevel</mat-label>
+                    <input matInput [(ngModel)]="inputs.isolevel" id="isolevel-input" name="isolevel" type="number"
+                        [placeholder]="'Isolevel: ' + inputs.isolevel">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Formula</mat-label>
+                    <input matInput [(ngModel)]="inputs.formula" id="formula-input" name="formula" type="text"
+                        [placeholder]="'Formula: ' + inputs.formula">
+                </mat-form-field>
+                <button mat-raised-button color="accent" type="submit">Generate</button>
+                <p id="error-paragraph"></p>
+            </form>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Available Variables
+            </mat-panel-title>
+            <mat-panel-description>
+                Variables which you can use in the formula input
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <app-marching-cube-card name="Vector"
+                description="Represents a point's placement in the world. X is vectorx, Y is vectory and Z is vectorz.">
+            </app-marching-cube-card>
+            <mat-divider class="card-divider"></mat-divider>
+            <app-marching-cube-card name="Length" description="Represents the point's euclidian length. Try adding 'length'
+            into an expression!"></app-marching-cube-card>
+            <mat-divider class="card-divider"></mat-divider>
+            <app-marching-cube-card name="Noise" description="Represents a noise-generated value associated to the point.
+            Typing 'noise' will add randomness to the equation!"></app-marching-cube-card>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

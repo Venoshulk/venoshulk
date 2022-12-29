@@ -1,0 +1,90 @@
+<style>
+    section {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "demo demo . . ."
+            "demo demo hello hello ."
+            "demo demo . intro intro"
+            "demo demo . socials .";
+    }
+
+    section.is-phone-portrait {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 2fr 1fr 0.5fr 1fr;
+        grid-template-areas:
+            "demo demo demo"
+            "demo demo demo"
+            ". hello socials"
+            "intro intro socials"
+    }
+
+    .demo-box {
+        max-width: fit-content;
+    }
+
+    article.is-phone-portrait {
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .full-card {
+        height: 100%;
+        width: 100%;
+    }
+
+    .centered-elements {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        border-radius: 32px;
+    }
+
+    .socials-article {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 16px;
+    }
+
+    .socials-article.is-phone-portrait {
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+</style>
+
+<section class="padded-box" [ngClass]="{'is-phone-portrait': isPhonePortrait}">
+    <article class="blue-border demo-box" [style.grid-area]="'demo'" [ngClass]="{'is-phone-portrait': isPhonePortrait}">
+        <app-hero-demo [canvas_height]="450" [canvas_width]="650"></app-hero-demo>
+    </article>
+    <article [style.grid-area]="'hello'">
+        <mat-card>
+            <mat-card-content class="centered-text">
+                <h1>Hello, World!</h1>
+            </mat-card-content>
+        </mat-card>
+    </article>
+    <article [style.grid-area]="'intro'">
+        <mat-card>
+            <mat-card-content class="centered-text">
+                <p>My name is Arthur Mousatov, and I am a computer science student at Concordia University.</p>
+            </mat-card-content>
+        </mat-card>
+    </article>
+    <article [style.grid-area]="'socials'" class="centered-elements socials-article"
+        [ngClass]="{'is-phone-portrait': isPhonePortrait}">
+        <a href="https://www.linkedin.com/in/arthur-mousatov-591a661a1/">
+            <img src="/assets/imgs/linkedin.jpg" width="50" height="50" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/ArthurMousatov">
+            <img src="/assets/imgs/github.png" width="50" height="50" alt="Github">
+        </a>
+    </article>
+</section>

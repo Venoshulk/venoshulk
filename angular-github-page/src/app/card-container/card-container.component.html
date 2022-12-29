@@ -1,0 +1,15 @@
+<style>
+    article {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+</style>
+
+<section class="padded-box">
+    <h1>{{title}}</h1>
+    <article class="padded-box">
+        <app-simple-card *ngFor="let card of cards" [card]="card"></app-simple-card>
+    </article>
+</section>

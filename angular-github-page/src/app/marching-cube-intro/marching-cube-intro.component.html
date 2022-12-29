@@ -1,0 +1,38 @@
+<section id="intro-section">
+    <h1 id="title">Marching Cubes: A Quick Note</h1>
+    <div id="intro-paragraph">
+        <p>
+            Awhile back, I saw a YouTube video titled “Coding Adventure: Marching Cubes” by Sebastian Lague. It was an
+            exploration of a graphical algorithm which generates a mesh (shape) based of 8-point fields (cubes). For
+            those curious, the video goes in-depth about how the algorithm generates the mesh, but essentially:
+        </p>
+        <ol className="style-list">
+            <li>Take 8 equidistant points, forming a cube.</li>
+            <li>Assign a numeric value to the points, based on a formula of your choosing.</li>
+            <li>Compare the numeric values to a constant, called the “isolevel”.</li>
+            <li>Create a new byte, set it to 0.</li>
+            <li>Go through the points, and if the point’s value is above the isolevel, set the appropriate bit in the
+                byte to 1. For example, if point 1’s value is 25, and the isolevel is 10, then the byte is now 0000
+                0001.</li>
+            <li>As such, the byte creates a number between 0 and 255.</li>
+            <li>By inputting this number into a premade array of possible combinations, you get a shape made of
+                triangles!</li>
+            <li>You can use vertex interpolation to smooth out the shape.</li>
+            <li>Finally, take these triangles and render them on the screen.</li>
+        </ol>
+        <p>
+            If some of you are confused, that’s perfectly normal. My brain shutdown the first time I read the algorithm.
+            Take your time on each step, and don’t be afraid to illustrate it on paper or whiteboard. Feel free to
+            explore the demo on this page: it’s made to illustrate what is possible with marching cubes and a bit of
+            tinkering with the formula.
+            As a final note, if you are interested in implementing the algorithm, these are the sources I used:
+        </p>
+        <ul>
+            <li><a href="http://paulbourke.net/geometry/polygonise/"> Paul Bourke's Marching Cube Implementation</a>
+            </li>
+            <li><a href="https://www.youtube.com/watch?v=M3iI2l0ltbE"> Sebastian Lague's Video On Marching Cubes</a>
+            </li>
+        </ul>
+    </div>
+    <img id="showcase-image" src="/assets/imgs/marching.gif" alt="Marching Squares Showcase!">
+</section>
