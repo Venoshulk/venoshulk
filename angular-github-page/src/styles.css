@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.padded-box {
+    padding: 16px;
+}
+
+.rounded-border {
+    border-radius: 10px;
+}
+
+.blue-border {
+    border-color: var(--color-accent) !important;
+    border-width: 1px !important;
+    border-style: solid;
+}

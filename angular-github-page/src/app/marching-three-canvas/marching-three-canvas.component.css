@@ -1,0 +1,10 @@
+#demo-section {
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    overflow: hidden;
+}

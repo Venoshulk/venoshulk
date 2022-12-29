@@ -1,0 +1,44 @@
+<style>
+    .card-box {
+        height: 350px;
+        width: 300px;
+    }
+
+    .card-box__content {
+        height: 150px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: start;
+    }
+
+    .card-box__header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: end;
+    }
+
+    .black-icon {
+        color: black;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+    }
+</style>
+
+<mat-card class="card-box" [class.blue-border]="card.isMarked">
+    <mat-card-header class="card-box__header">
+        <a [style.display]="card.hyperlink ? 'block' : 'none'" [href]="card.hyperlink">
+            <mat-icon class="black-icon" fontIcon="open_in_new"></mat-icon>
+        </a>
+        <a [style.display]="card.routerlink ? 'block' : 'none'" [routerLink]="card.routerlink">
+            <mat-icon class="black-icon" fontIcon="open_in_new"></mat-icon>
+        </a>
+    </mat-card-header>
+    <img class="rounded-border" mat-card-lg-image [style.display]="card.imgSrc ? 'block' : 'none'" [src]="card.imgSrc">
+    <mat-card-content class="card-box__content">
+        <mat-card-title class="centered-text">{{card.title}}</mat-card-title>
+        <mat-card-subtitle class="centered-text">{{card.description}}</mat-card-subtitle>
+    </mat-card-content>
+</mat-card>
